@@ -9,6 +9,7 @@ services:
       - TZ=America/New_York  # Change to your timezone
       - HOMEBRIDGE_CONFIG_UI=1
       - HOMEBRIDGE_CONFIG_UI_PORT=8581
+      - HOMEBRIDGE_DIR=/homebridge
     volumes:
       - ./homebridge:/homebridge
     logging:
