@@ -2,3 +2,29 @@ node_modules
 .env
 dist
 *.js.map
+
+# Homebridge generated files (do not commit)
+homebridge/persist/
+homebridge/accessories/
+homebridge/.homebridge/
+homebridge/*.log
+homebridge/*.pid
+homebridge/node_modules/
+homebridge/.npmrc
+homebridge/.uix-dashboard.json
+homebridge/.uix-secrets
+homebridge/auth.json
+homebridge/backups/
+homebridge/startup.sh
+
+# Application logs
+logs/
+homebridge/.npmrc
+homebridge/.uix-dashboard.json
+homebridge/.uix-secrets
+homebridge/auth.json
+homebridge/backups/
+homebridge/startup.sh
+
+# Application logs
+logs/
