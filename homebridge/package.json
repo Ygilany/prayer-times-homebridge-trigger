@@ -7,9 +7,10 @@
     "homebridge": ">=1.0.0"
   },
   "dependencies": {
-    "homebridge-dummy": "^0.9.0",
-    "homebridge-http-webhooks": "^1.0.0",
-    "homebridge-config-ui-x": "^4.50.0"
+    "homebridge": "^1.11.1",
+    "homebridge-dummy": "^1.5.0",
+    "homebridge-http-webhooks": "^0.2.0",
+    "homebridge-config-ui-x": "^5.10.0"
   }
 }
 
