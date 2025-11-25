@@ -55,14 +55,19 @@ When Homebridge starts for the first time, it will generate a new `config.json`.
 2. Copy the provided `homebridge/config.json` (or merge it with the generated one)
 3. Start Homebridge: `docker-compose up -d`
 
-**Option 2: Configure via Config UI**
-1. After initial setup, go to Config UI
+**Option 2: Configure via Config UI (Recommended)**
+1. After initial setup, go to Config UI (`http://localhost:8581`)
 2. Navigate to "Plugins" → "HttpWebHooks"
-3. Configure:
+3. Click "Add Accessory" or configure the webhook:
    - Webhook Port: `51828`
-   - Add accessory with ID: `dailyScene`
-   - Set target accessory: `Prayer Times Switch`
-   - Set target property: `On`
+   - Accessory ID: `dailyScene`
+   - Display Name: `Prayer Time Trigger`
+   - Type: `switch`
+   - Target Accessory: `Prayer Times Switch`
+   - Target Property: `On`
+   - Target Value: `true`
+
+**Note:** If you get errors about undefined displayName, configure the plugin through the Config UI instead of manually editing config.json. The UI will generate the correct format.
 
 ### Verify Configuration
 

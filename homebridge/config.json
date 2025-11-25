@@ -26,10 +26,12 @@
     },
     {
       "platform": "HttpWebHooks",
+      "name": "HttpWebHooks",
       "webhook_port": 51828,
       "accessories": [
         {
           "id": "dailyScene",
+          "displayName": "Prayer Time Trigger",
           "name": "Prayer Time Trigger",
           "type": "switch",
           "targetAccessory": "Prayer Times Switch",
