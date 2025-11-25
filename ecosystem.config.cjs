@@ -1,8 +1,8 @@
 module.exports = {
   apps: [{
     name: 'prayer-times',
-    script: 'tsx',
-    args: 'timings.ts',
+    script: 'npx',
+    args: 'tsx timings.ts',
     interpreter: 'node',
     instances: 1,
     autorestart: true,

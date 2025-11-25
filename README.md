@@ -304,36 +304,7 @@ After running `pm2 startup` and `pm2 save`, the application will automatically s
 
 #### PM2 Ecosystem File (Recommended for TypeScript)
 
-For TypeScript projects, create an `ecosystem.config.cjs` file (CommonJS format for PM2):
-
-```javascript
-module.exports = {
-  apps: [{
-    name: 'prayer-times',
-    script: 'tsx',
-    args: 'timings.ts',
-    interpreter: 'node',
-    instances: 1,
-    autorestart: true,
-    watch: false,
-    max_memory_restart: '200M',
-    error_file: './logs/err.log',
-    out_file: './logs/out.log',
-    log_date_format: 'YYYY-MM-DD HH:mm:ss Z',
-    merge_logs: true,
-    env: {
-      NODE_ENV: 'production'
-    }
-  }]
-};
-```
-
-Then start with:
-```bash
-pm2 start ecosystem.config.cjs
-```
-
-**Alternative:** If you prefer to use `npx tsx`:
+For TypeScript projects, the `ecosystem.config.cjs` file uses `npx tsx` to ensure `tsx` is found from `node_modules`:
 
 ```javascript
 module.exports = {
@@ -356,6 +327,22 @@ module.exports = {
   }]
 };
 ```
+
+Then start with:
+```bash
+pm2 start ecosystem.config.cjs
+```
+
+**Note:** The config uses `npx tsx` instead of just `tsx` because `tsx` is a local dependency. If you prefer to install `tsx` globally, you can change it to:
+```javascript
+script: 'tsx',
+args: 'timings.ts',
+```
+
+**Troubleshooting:** If you get "Script not found: tsx" error, make sure:
+1. You've run `npm install` to install dependencies
+2. The ecosystem.config.cjs uses `npx tsx` (as shown above)
+3. Or install tsx globally: `npm install -g tsx` and change config to use `script: 'tsx'`
 
 ## How It Works
 
