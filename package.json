@@ -1,5 +1,5 @@
 {
-  "name": "prayer-times",
+  "name": "prayer-times-homebridge-trigger",
   "version": "1.0.0",
   "type": "module",
   "main": "timings.ts",
