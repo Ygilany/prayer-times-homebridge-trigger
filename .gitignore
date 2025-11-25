@@ -19,12 +19,3 @@ homebridge/startup.sh
 
 # Application logs
 logs/
-homebridge/.npmrc
-homebridge/.uix-dashboard.json
-homebridge/.uix-secrets
-homebridge/auth.json
-homebridge/backups/
-homebridge/startup.sh
-
-# Application logs
-logs/
