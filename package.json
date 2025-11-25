@@ -1,0 +1,23 @@
+{
+  "name": "prayer-times",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "timings.ts",
+  "scripts": {
+    "start": "tsx timings.ts",
+    "dev": "tsx watch timings.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "axios": "^1.13.2",
+    "dotenv": "^16.4.5"
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.25",
+    "tsx": "^4.16.0",
+    "typescript": "^5.5.0"
+  }
+}
