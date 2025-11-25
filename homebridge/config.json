@@ -1,0 +1,43 @@
+{
+  "bridge": {
+    "name": "Homebridge",
+    "username": "CC:22:3D:E3:CE:30",
+    "port": 51826,
+    "pin": "031-45-154"
+  },
+  "accessories": [
+    {
+      "accessory": "DummySwitch",
+      "name": "Prayer Times Switch",
+      "stateful": true,
+      "reverse": false,
+      "time": 0,
+      "reset": 0,
+      "manufacturer": "Prayer Times",
+      "model": "Prayer Trigger Switch",
+      "serialNumber": "PT-001"
+    }
+  ],
+  "platforms": [
+    {
+      "name": "Config",
+      "port": 8581,
+      "platform": "config"
+    },
+    {
+      "platform": "HttpWebHooks",
+      "webhook_port": 51828,
+      "accessories": [
+        {
+          "id": "dailyScene",
+          "name": "Prayer Time Trigger",
+          "type": "switch",
+          "targetAccessory": "Prayer Times Switch",
+          "targetProperty": "On",
+          "targetValue": true
+        }
+      ]
+    }
+  ]
+}
+

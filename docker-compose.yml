@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  homebridge:
+    image: oznu/homebridge:latest
+    platform: linux/arm64  # Raspberry Pi 5 (64-bit ARM)
+    container_name: homebridge
+    restart: unless-stopped
+    network_mode: host
+    environment:
+      - TZ=America/New_York  # Change to your timezone
+      - HOMEBRIDGE_CONFIG_UI=1
+      - HOMEBRIDGE_CONFIG_UI_PORT=8581
+    volumes:
+      - ./homebridge:/homebridge
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+

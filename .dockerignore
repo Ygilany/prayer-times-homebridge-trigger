@@ -1,0 +1,7 @@
+node_modules
+*.log
+homebridge/node_modules
+homebridge/persist
+homebridge/accessories
+homebridge/*.pid
+

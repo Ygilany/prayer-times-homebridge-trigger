@@ -1,0 +1,15 @@
+{
+  "name": "homebridge-prayer-times",
+  "version": "1.0.0",
+  "description": "Homebridge configuration for Prayer Times scheduler",
+  "private": true,
+  "engines": {
+    "homebridge": ">=1.0.0"
+  },
+  "dependencies": {
+    "homebridge-dummy": "^0.9.0",
+    "homebridge-http-webhooks": "^1.0.0",
+    "homebridge-config-ui-x": "^4.50.0"
+  }
+}
+
