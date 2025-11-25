@@ -26,7 +26,7 @@ function getDailyUrl(): string {
 // For Raspberry Pi: use '127.0.0.1' or 'localhost' (both script and Homebridge on same Pi)
 // For remote setup: use your Pi's IP address (e.g., '192.168.1.100')
 const HOME_BRIDGE_HOST = process.env.HOME_BRIDGE_HOST || '127.0.0.1';
-const WEBHOOK_PORT = process.env.WEBHOOK_PORT || 51828;  // must match webhook_port in HttpWebHooks config
+const WEBHOOK_PORT = process.env.WEBHOOK_PORT || 63743;  // must match webhook_port in Dummy plugin config
 const ACCESSORY_ID = process.env.ACCESSORY_ID || 'dailyScene';  // must match the "id" for your pushbutton
 
 // <<< END CONFIG >>>
@@ -47,13 +47,16 @@ function clearActiveTimers(): void {
  * Call Homebridge HTTP webhooks to "press" the Daily Scene Trigger button.
  */
 async function triggerHomeKitScene(): Promise<void> {
-  const url = `http://${HOME_BRIDGE_HOST}:${WEBHOOK_PORT}/?accessoryId=${encodeURIComponent(
-    ACCESSORY_ID
-  )}&state=true`;
+  const url = `http://${HOME_BRIDGE_HOST}:${WEBHOOK_PORT}`;
 
   try {
-    await axios.get(url);
-    console.log(new Date().toISOString(), 'Triggered HomeKit scene via', url);
+    const setValue = {
+      id: ACCESSORY_ID,
+      set: `On`,
+      value: true,
+    };
+    await axios.post(url, setValue);
+    console.log(new Date().toISOString(), 'Triggered HomeKit scene via', url, setValue);
   } catch (err) {
     const error = err as Error;
     console.error('Error triggering HomeKit scene:', error.message);
