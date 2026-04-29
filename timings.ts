@@ -12,7 +12,7 @@ import axios from 'axios';
 // API Configuration
 const API_CITY = process.env.API_CITY || 'Mason';
 const API_COUNTRY = process.env.API_COUNTRY || 'US';
-const API_STATE = process.env.API_STATE || 'Ohio';
+const API_STATE = process.env.API_STATE || 'OH';
 const API_METHOD = process.env.API_METHOD || '2';  // 2 = ISNA
 const API_TIMEZONE = process.env.API_TIMEZONE || 'EST';
 
