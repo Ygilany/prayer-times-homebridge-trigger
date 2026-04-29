@@ -15,11 +15,12 @@ const API_COUNTRY = process.env.API_COUNTRY || 'US';
 const API_STATE = process.env.API_STATE || 'OH';
 const API_METHOD = process.env.API_METHOD || '2';  // 2 = ISNA
 const API_TIMEZONE = process.env.API_TIMEZONE || 'America/New_York';
+const TIME_TUNE = `0,1,1,1,1,0,0,0,0`
 
 // Endpoint that returns today's trigger times
 function getDailyUrl(): string {
   const date = new Date().toISOString().split('T')[0];
-  return `https://api.aladhan.com/v1/timingsByCity/${date}?city=${API_CITY}&country=${API_COUNTRY}&state=${API_STATE}&method=${API_METHOD}&shafaq=general&timezonestring=${API_TIMEZONE}`;
+  return `https://api.aladhan.com/v1/timingsByCity/${date}?city=${API_CITY}&country=${API_COUNTRY}&state=${API_STATE}&method=${API_METHOD}&shafaq=general&timezonestring=${API_TIMEZONE}&tune=${TIME_TUNE}`;
 }
 
 // Homebridge HTTP webhooks config
