@@ -1,9 +1,9 @@
 {
     "bridge": {
         "name": "Homebridge",
-        "username": "0E:6C:AB:5B:28:C4",
+        "username": "CC:22:3D:E3:CE:30",
         "port": 51826,
-        "pin": "280-95-790"
+        "pin": "031-45-154"
     },
     "accessories": [],
     "platforms": [
@@ -16,7 +16,7 @@
             "name": "Homebridge Dummy",
             "accessories": [
                 {
-                    "id": "fb8fb2e7-87ae-4705-8361-4f7caca1ed4b",
+                    "id": "REPLACE-WITH-YOUR-OWN-UUID",
                     "name": "Prayer Times Switch",
                     "type": "Switch",
                     "resetOnRestart": false,
@@ -33,7 +33,7 @@
             "powerOnBehavior": 1,
             "platform": "ElgatoKeyLights",
             "_bridge": {
-                "username": "0E:CB:36:46:0B:7B",
+                "username": "0E:00:00:00:00:01",
                 "port": 55915,
                 "name": "Homebridge Key Lights"
             }

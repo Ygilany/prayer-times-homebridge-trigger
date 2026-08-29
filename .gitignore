@@ -14,6 +14,10 @@ homebridge/.npmrc
 homebridge/.uix-dashboard.json
 homebridge/.uix-secrets
 homebridge/auth.json
+# Contains the HomeKit setup PIN and the bridge/child-bridge usernames.
+# This repo is public. Use config.example.json as the template; the real
+# config is captured by scripts/backup.sh in the ops repo.
+homebridge/config.json
 homebridge/backups/
 homebridge/startup.sh
 # Written by the container to record which image tag is running.
