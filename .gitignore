@@ -19,3 +19,5 @@ homebridge/startup.sh
 
 # Application logs
 logs/
+# Cached prayer times (regenerated daily)
+.last-known-times.json
