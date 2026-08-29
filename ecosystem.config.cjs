@@ -21,6 +21,13 @@ module.exports = {
     args: 'timings.ts',
     exec_mode: 'fork',
 
+    // Resolve node from PATH at spawn time rather than letting pm2 persist an
+    // absolute path. pm2 stores exec_interpreter in its own saved state, so
+    // without this it pins whichever nvm version was current when the app was
+    // first added - and keeps using it after a Node upgrade, silently, until
+    // that version is deleted and the scheduler stops starting.
+    interpreter: 'node',
+
     instances: 1,
     autorestart: true,
     watch: false,
