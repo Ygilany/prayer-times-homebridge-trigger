@@ -25,6 +25,18 @@
                 }
             ],
             "platform": "HomebridgeDummy"
+        },
+        {
+            "name": "Elgato Key Lights",
+            "switchOnDurationMs": 100,
+            "useIP": false,
+            "powerOnBehavior": 1,
+            "platform": "ElgatoKeyLights",
+            "_bridge": {
+                "username": "0E:CB:36:46:0B:7B",
+                "port": 55915,
+                "name": "Homebridge Key Lights"
+            }
         }
     ]
 }

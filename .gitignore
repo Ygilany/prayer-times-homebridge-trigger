@@ -16,6 +16,9 @@ homebridge/.uix-secrets
 homebridge/auth.json
 homebridge/backups/
 homebridge/startup.sh
+# Written by the container to record which image tag is running.
+# Runtime state, and it churns on every weekly auto-update.
+homebridge/homebridgeContainer.json
 
 # Application logs
 logs/
