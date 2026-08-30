@@ -92,6 +92,30 @@ function clearActiveTimers(): void {
 async function triggerHomeKitScene(): Promise<void> {
   const url = `http://${HOME_BRIDGE_HOST}:${WEBHOOK_PORT}`;
 
+  // Force a genuine off->on transition on every trigger, regardless of
+  // whatever state the switch is already in. Homebridge's Dummy plugin only
+  // fires a real HomeKit characteristic change - and only fires any HomeKit
+  // automation bound to this switch - on an actual state transition. A
+  // repeat "set On" call while it's already on (e.g. restored "on" after a
+  // Homebridge restart, since resetOnRestart is false, with nothing having
+  // turned it off since) is a silent no-op: the webhook call still succeeds,
+  // but nothing toggles and any automation listening for the "on" edge never
+  // fires. This isn't just a logging concern - it can silently swallow the
+  // actual trigger. Turning it off first, unconditionally, guarantees a real
+  // edge every time.
+  try {
+    await axios.post(url, { id: ACCESSORY_ID, set: 'On', value: false });
+  } catch (err) {
+    // Not fatal - if it was already off this may itself be a no-op, and
+    // either way the real "on" call below is what actually matters.
+    console.error('Warning: pre-trigger off call failed:', (err as Error).message);
+  }
+
+  // Give Homebridge/HAP a moment to settle the off state before flipping back
+  // on, so the two calls don't land close enough to be coalesced into one
+  // internal state change.
+  await sleep(300);
+
   try {
     const setValue = {
       id: ACCESSORY_ID,
